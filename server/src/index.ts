@@ -5,7 +5,7 @@ app.use(express.json())
 const PORT = 3000
 
 app.get('/ping', (_req, res) => {
-    console.log('Pong received'+ new Date().toLocaleDateString())
+    console.log('Pong received' + new Date().toLocaleDateString())
     res.send('pong')
 })
 
