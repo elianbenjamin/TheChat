@@ -1,4 +1,4 @@
-import app from "./src/app"
+import app from "./app"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 
@@ -11,7 +11,7 @@ const PORT = 3000
 
 // Connect to MongoDB database using Mongoose
 mongoose
- .connect(process.env.DB_CONNECTION || "")
+ .connect(process.env.MONGO_URI as string)
  .then(()=> {
     console.log("MongoDB connected")
 })
