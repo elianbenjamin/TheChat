@@ -1,18 +1,14 @@
-import express from 'express'
-import morgan from 'morgan'
-import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
+const express = require("express");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
+const server = express();
+server.use(cors());
+server.use(express.json());
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(cookieParser());
+server.use(morgan("dev"));
 
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(morgan('dev'))
-
-export default app;
-
-
-
+module.exports = server;

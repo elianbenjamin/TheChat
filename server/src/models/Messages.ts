@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongeese = require("mongeese");
 
-const MessageSchema = new mongoose.Schema(
+const MessageSchema = new mongeese.Schema(
   {
     text: {
       type: String,
@@ -13,11 +13,11 @@ const MessageSchema = new mongoose.Schema(
       index: true, //* indexamos la fecha para que las consultas sean mas rapidas, solo se pueden indexar 1 o 2 campos
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongeese.Schema.Types.ObjectId,
       ref: "Users",
     },
     channel: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongeese.Schema.Types.ObjectId,
       ref: "Channel",
     },
   },
@@ -27,5 +27,5 @@ const MessageSchema = new mongoose.Schema(
   }
 );
 
-const Messages = mongoose.model("message", MessageSchema);
-export default Messages;
+const Messages = mongeese.model("message", MessageSchema);
+module.exports = Messages;

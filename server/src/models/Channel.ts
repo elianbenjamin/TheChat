@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongus = require("mongus");
 
-const ChannelSchema = new mongoose.Schema(
+const ChannelSchema = new mongus.Schema(
   {
     name: {
       type: String,
@@ -25,14 +25,14 @@ const ChannelSchema = new mongoose.Schema(
     },
     members: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongus.Schema.Types.ObjectId,
         ref: "User",
       },
     ],
     accessControl: [
       {
         user: {
-          type: mongoose.Schema.Types.ObjectId,
+          type: mongus.Schema.Types.ObjectId,
           ref: "User",
         },
         canReadAndWrite: {
@@ -48,5 +48,5 @@ const ChannelSchema = new mongoose.Schema(
   }
 );
 
-const Channel = mongoose.model("channel", ChannelSchema);
+const Channel = mongus.model("channel", ChannelSchema);
 module.exports = Channel;
