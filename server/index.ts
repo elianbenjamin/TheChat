@@ -1,42 +1,49 @@
-import mongoose from "mongoose";
+import app from "./src/app";
+import { connectDB } from "./src/db";
 import { MessageModel } from "./src/models/Messages";
 import { UsuarioModel } from "./src/models/Users";
 
 
+const PORT = 3000
 
-const uri = "mongodb+srv://elianbenjamin30:3zV8EcktVVdFniwT@cluster0.flhfwgz.mongodb.net/ChatOnline";
 
-async function connectDB() {
 
-    try {
-      
-        await mongoose.connect(uri)
-        console.log("MongoDB connected successfully");
-    } catch (error) {
-      console.log("Error al conectar a la base de datos", error);
-      
-    }
-    
-  }
+
   connectDB()
 
-   MessageModel.create(
-    {
-        text:'SE LOGROOO PAPA',
-        
-    }
-  ) 
 
+/*   MessageModel.create(
+   {
+       text:'[nodemon] app crashed - waiting for file changes before starting...',
+       
+   }
+  )  */
   
+ /*  
   UsuarioModel.create(
-    {
-        name:"Adolfii",
-        email:"IATUSABEEES@gmail.com",
-        password:"123456789",
-        phone: 33456256
+   {
+       name:"power",
+       email:"poeeer@gmail.com",
+       password:"12356789",
+       phone: 33456256
+  
+   }
+  )  */
 
-    }
-  ) 
+  app.get('/ping', (_req, res) => {
+    console.log('Pong received' + new Date().toLocaleDateString())
+    res.send('pong')
+})
+
+app.listen(PORT, ()=> {
+  console.log(`Server is running on port ${PORT}`)
+})  
+
+
+
+
+
+
 
  
 
