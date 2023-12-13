@@ -1,13 +1,20 @@
 import './App.css'
+import { Footer } from './components/Footer'
+import  Welcome  from './components/Welcome/Welcome'
+
+import  NavBar  from './views/NavBar/NavBar'
+
 
 function App() {
   
 
   return (
-    
-      <div>
-        <h1>Welcome to The Chat</h1>
-      </div>
+        <>
+        <NavBar />
+        <Welcome />
+        <Footer />
+        </>
+     
       
   )
 }
