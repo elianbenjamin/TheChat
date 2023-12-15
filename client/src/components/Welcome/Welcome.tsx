@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styles from "./welcome.module.css";
 
 export type WelcomeProps = {
@@ -20,7 +21,16 @@ const Welcome: React.FC<WelcomeProps> = ({}) => {
       </h2>
 	  <div className={styles.containerDiv}>
 
-	  <button className={styles.button}>Ingresar</button>
+    <NavLink to={'/login'} >
+<button className={styles.button}>
+	     Ingresar
+
+</button>
+
+    </NavLink>
+
+
+    
 
 	  </div>
 
