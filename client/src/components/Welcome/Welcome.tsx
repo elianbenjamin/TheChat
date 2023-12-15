@@ -1,11 +1,22 @@
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import styles from "./welcome.module.css";
+import { useState } from "react";
+import { Login } from "../../views/Login";
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 export type WelcomeProps = {
   // types...
 };
 
 const Welcome: React.FC<WelcomeProps> = ({}) => {
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
   return (
     <div className={styles.container}>
       <div className={styles.containerImg}>
@@ -21,16 +32,17 @@ const Welcome: React.FC<WelcomeProps> = ({}) => {
       </h2>
 	  <div className={styles.containerDiv}>
 
-    <NavLink to={'/login'} >
-<button className={styles.button}>
+    {/* <NavLink to={'/login'} > */}
+<Button variant="primary" onClick={handleShow}>
 	     Ingresar
 
-</button>
+</Button>
 
-    </NavLink>
-
-
-    
+    {/* </NavLink> */}
+    {/* <LoginModal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} /> */}
+    <Modal show={show} onHide={handleClose}>
+      <Login/>
+    </Modal>
 
 	  </div>
 
